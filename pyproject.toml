@@ -1,0 +1,32 @@
+[project]
+name = "smithsonian-open-access-catalog"
+version = "0.1.0"
+description = "Application for refreshing the Smithsonian Open Access Archive's catalog files"
+readme = "README.md"
+authors = [
+    { name = "Harvard Library Innovation Lab", email = "lil@law.harvard.edu" },
+]
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+smithsonian-open-access-catalog = "smithsonian_open_access_catalog:main"
+
+[dependency-groups]
+dev = ["ruff>=0.16.3"]
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.ruff.lint]
+extend-select = ["I"]
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
