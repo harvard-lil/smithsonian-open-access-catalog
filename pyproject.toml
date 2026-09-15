@@ -1,22 +1,22 @@
 [project]
 name = "smithsonian-open-access-catalog"
 version = "0.1.0"
-description = "Application for refreshing the Smithsonian Open Access Archive's catalog files"
+description = "Application for rebuilding the Smithsonian Open Access Archive catalogs"
 readme = "README.md"
 authors = [
     { name = "Harvard Library Innovation Lab", email = "lil@law.harvard.edu" },
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = ["boto3>=1.43.94", "duckdb>=1.5.5", "pyarrow>=25.0.1"]
 
 [project.scripts]
 smithsonian-open-access-catalog = "smithsonian_open_access_catalog:main"
 
 [dependency-groups]
-dev = ["ruff>=0.16.3"]
+dev = ["pytest>=9.1.1", "ruff>=0.16.3"]
 
 [build-system]
-requires = ["uv_build>=0.12.3,<0.13.0"]
+requires = ["uv_build>=0.12.14,<0.13.0"]
 build-backend = "uv_build"
 
 [tool.ruff]
@@ -30,3 +30,6 @@ extend-select = ["I"]
 
 [tool.ruff.lint.isort]
 force-sort-within-sections = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
